@@ -27,7 +27,7 @@ nodemon server.js
 4. 商品被加至購物車後可選擇數量以及移除商品，最後計算出總金額
 5. 按下購物車中的結帳按紐進入結帳頁面
 6. 點擊上方導覽列的後台管理即可進入網站後台管理商品
-<img src="./asset/HomePage.png"/>
+<img src="./asset/HomePage.png.png"/>
 <img src="./asset/HomePage_footer.png"/>
 <img src="./asset/ShoppingCart.png"/>
 
