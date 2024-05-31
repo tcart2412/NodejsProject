@@ -28,28 +28,28 @@ nodemon server.js
 5. 按下購物車中的結帳按紐進入結帳頁面
 6. 點擊上方導覽列的後台管理即可進入網站後台管理商品
 <img src="./asset/HomePage.png"/>
-<img src="./asset/HomePage_footer.png" width="600" height="300"/>
-<img src="./asset/ShoppingCart.png" width="600" height="300"/>
+<img src="./asset/HomePage_footer.png"/>
+<img src="./asset/ShoppingCart.png"/>
 
 ### 結帳頁面功能
 1. 將使用者的購買清單製成訂單顯示
 2. 提交訂單後總金額為0時則會提醒使用者選擇商品數量，大於0通知提交訂單成功
-<img src="./asset/Checkout.png" width="100%" height="300"/>
-<img src="./asset/CheckoutOK.png" width="600" height="300"/>
+<img src="./asset/Checkout.png"/>
+<img src="./asset/CheckoutOK.png"/>
 
 ### 登入頁面功能
 1. 使用者登入管理員帳號後即可進入網站後台管理商品項目
 2. 若尚未有管理員帳號可選擇註冊管理員帳號按鈕
-<img src="./asset/LoginPage.png" width="600" height="300"/>
+<img src="./asset/LoginPage.png"/>
 
 ### 註冊頁面功能
 1. 使用者在此頁面註冊管理員帳號
 2. 若帳號已註冊過便會在註冊按鈕下方告知提醒以免重複註冊
 3. 註冊成功後便會進到登入頁面，註冊失敗則回到此頁面
-<img src="./asset/RegisterPage.png" width="600" height="300"/>
-<img src="./asset/RegisterPage_failed.png" width="600" height="300"/>
+<img src="./asset/RegisterPage.png"/>
+<img src="./asset/RegisterPage_failed.png"/>
 
 ### 後台管理頁面功能
 1. 管理員可在此頁面對每項商品的內容做編輯，包括商品名稱、圖片、單價和商品簡述
 2. 管理員可在此頁面新增商品項目，也可以將已存在的商品項目刪除，此頁面的所有商品皆會展示在首頁
-<img src="./asset/AdminPage.png" width="600" height="300"/>
+<img src="./asset/AdminPage.png"/>
