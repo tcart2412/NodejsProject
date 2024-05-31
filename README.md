@@ -27,14 +27,14 @@ nodemon server.js
 4. 商品被加至購物車後可選擇數量以及移除商品，最後計算出總金額
 5. 按下購物車中的結帳按紐進入結帳頁面
 6. 點擊上方導覽列的後台管理即可進入網站後台管理商品
-<img src="./asset/HomePage.png" width="600" height="300"/>
+<img src="./asset/HomePage.png"/>
 <img src="./asset/HomePage_footer.png" width="600" height="300"/>
 <img src="./asset/ShoppingCart.png" width="600" height="300"/>
 
 ### 結帳頁面功能
 1. 將使用者的購買清單製成訂單顯示
 2. 提交訂單後總金額為0時則會提醒使用者選擇商品數量，大於0通知提交訂單成功
-<img src="./asset/Checkout.png" width="600" height="300"/>
+<img src="./asset/Checkout.png" width="100%" height="300"/>
 <img src="./asset/CheckoutOK.png" width="600" height="300"/>
 
 ### 登入頁面功能
