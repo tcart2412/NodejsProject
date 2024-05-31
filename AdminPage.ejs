@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登入</title>
+    <script src="js/admin.js"></script>
+    <link rel="stylesheet" href="css/admin.css">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1><a href="/">好吃烘培工坊</a></h1>
+        <nav>
+            <ul id="menuItems">
+                <li><a href="/LoginPage">後台管理</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div>
+            <form action="/add-product" enctype="multipart/form-data" id="add-form" method="post">
+                <div>
+                    <label>商品名稱：</label>
+                    <input type="text" placeholder="請輸入商品名稱" name="name">
+                </div>
+                <div>
+                    <label>商品圖片：</label>
+                    <input type="file" id="fileInput" accept="image/*" name="image">
+                </div>
+                <div>
+                    <label>商品描述：</label>
+                    <input type="text" name="discription">
+                </div>
+                <div>
+                    <label>商品價格：</label>
+                    <input type="text" name="price" class="price-input">
+                </div>
+                <button type="submit" class="add-btn">新增</button>
+            </form>
+        </div>
+        <div>
+            <table width="800px">
+                <tr class="head-tr">
+                    <th class="id-col">編號</th>
+                    <th class="name-col">商品名稱</th>
+                    <th class="dis-col">商品簡述</th>
+                    <th class="price-col">單價</th>
+                    <th class="img-col">展示圖</th>
+                    <th class="edit-col">編輯</th>
+                    <th class="delete-col">刪除</th>
+                </tr>
+                <% if (products.length> 0) { %>
+                    <% for(var i=0; i < products.length; i++) { %>
+                        <form action="/edit-product" enctype="multipart/form-data" method="post" >
+                            <tr>
+                                <td>
+                                    <input type="hidden" name="id" value="<%= products[i].id %>">
+                                    <%= products[i].id %>
+                                </td>
+                                <td>
+                                    <% if (edit && (id==products[i].id)) { %>
+                                        <input type="text" value="<%= products[i].name %>" name="name">
+                                        <% } else { %>
+                                            <%= products[i].name %>
+                                        <% } %>
+                                </td>
+                                <td>
+                                    <% if (edit && (id==products[i].id)) { %>
+                                        <input type="text" value="<%= products[i].discription %>" name="discription">
+                                        <% } else { %>
+                                            <%= products[i].discription %>
+                                        <% } %>
+                                </td>
+                                <td>
+                                    <% if (edit && (id==products[i].id)) { %>
+                                        <input type="text" value="<%= products[i].price %>" name="price"
+                                            class="tb-price-input"> $
+                                        <% } else { %>
+                                            <%= products[i].price %> $
+                                        <% } %>
+                                </td>
+                                <td>
+                                    <% if (edit && (id==products[i].id)) { %>
+                                        <input type="file" id="fileInput" accept="image/*" name="image">
+                                        <% } else { %>
+                                            <img src="uploads/<%= products[i].file_src %>" alt="None">
+                                        <% } %>
+                                </td>
+                                <td>
+                                    <% if (edit && (id==products[i].id)) { %>
+                                        <button>
+                                            <a href="/cancel-edit">消</a>
+                                        </button>
+                                        <button type="sumbit">存</button>
+                                        <% } else { %>
+                                            <button>
+                                                <a href="/update-product?id=<%= products[i].id %>">編輯</a>
+                                            </button>
+                                        <% } %>
+                                </td>
+                                <td>
+                                    <button>
+                                        <a href="/delete-product?id=<%= products[i].id %>">刪除</a>
+                                    </button>
+                                </td>
+                            </tr>
+                        </form>
+                    <% } %>
+                <% } else { %>
+                    <h1>Product Data not Found !</h1>
+                <% } %>
+            </table>
+        </div>
+
+
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+header {
+    /* display: inline; */
+    background-color: red;
+    height: 60px;
+    text-align: center;
+    align-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.product-content {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    align-items: center;
+    column-gap: 10px;
+    /* margin: 10px; */
+}
+
+
+.product-content img {
+    width: 450px;
+    height: 350px;
+}
+
+.product-info {
+    background-color: white;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* justify-content: left; */
+    /* justify-content: end; */
+}
+
+.product-info div {
+    margin: 7px;
+}
+
+.product-name {
+    /* background-color: blue; */
+    text-align: center;
+    /* font-weight: bolder; */
+}
+
+
+.product-intro {
+    background-color: rgb(225, 219, 219);
+    padding: 10px;
+    font-weight: bolder;
+}
+
+
+.product-price {
+    /* background-color: yellow; */
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+
+.product-quantity {
+    display: flex;
+    justify-content: center;
+    /* background-color: green; */
+}
+
+.product-quantity button {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    background-color: white;
+    border: none;
+    font-size: 40px;
+}
+
+.product-quantity span {
+    width: 50px;
+    text-align: center;
+    align-content: center;
+    font-size: 20px;
+}
+
+
+.btn-area {
+    display: flex;
+    justify-content: space-between;
+    /* margin-top: 40px; */
+}
+
+.btn-area button {
+    width: 150px;
+    height: 50px;
+    background-color: rgb(221, 45, 45);
+    color: white;
+    font-weight: bolder;
+    /* border-radius: 10px; */
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+
+}
+
+.favor-area {
+    text-align: right;
+}
+
+.add-favor {
+    cursor: pointer;
+}
+
+.add-favor:hover {
+    color: red;
+}

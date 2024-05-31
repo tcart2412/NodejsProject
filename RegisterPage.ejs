@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>註冊頁面</title>
+    <link rel="stylesheet" href="css/register.css">
+    <script src="js/register.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
+</head>
+
+<body>
+    <header>
+        <h1><a href="/">好吃烘培工坊</a></h1>
+        <nav>
+            <ul id="menuItems">
+                <li><a href="/LoginPage">後台管理</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="form-content">
+            <form id="login-form" method="post">
+                <div class="login-div">會員註冊</div>
+                <div>
+                    <input type="text" placeholder="姓名" name="name">
+                </div>
+                <div>
+                    <input type="text" placeholder="請輸入會員帳號" name="account">
+                </div>
+                <div>
+                    <input type="password" placeholder="密碼" name="password">
+                </div>
+                <div>
+                    <button type="submit">註冊</button>
+                </div>
+                <% if (regis > 0) { %>
+                    <p style="color: red;">此帳號已被註冊</p>
+                <% } %>
+                <div class="register-btn">
+                    <div onclick="backToLogin()">
+                        回登入頁面
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>
