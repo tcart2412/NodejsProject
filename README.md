@@ -23,7 +23,10 @@ nodemon server.js
 ```
 
 ### 商品首頁功能
-1. 呈現所有商品項目及賣家資訊 2. 使用者可將欲購買的商品加入購物車 3. 頁尾處輸入手機號碼即可收到簡訊的即時優惠通知 4. 商品被加至購物車後可選擇數量以及移除商品，最後計算出總金額
+1. 呈現所有商品項目及賣家資訊 
+2. 使用者可將欲購買的商品加入購物車 
+3. 頁尾處輸入手機號碼即可收到簡訊的即時優惠通知 
+4. 商品被加至購物車後可選擇數量以及移除商品，最後計算出總金額
 <img src="./asset/HomePage.png" width="600" height="300"/>
 <img src="./asset/HomePage_footer.png" width="600" height="300"/>
 <img src="./asset/ShoppingCart.png" width="600" height="300"/>
