@@ -44,16 +44,11 @@
 
         <section class="product">
             <% for (var i=0; i < products.length; i ++) { %>
-                <div>
+                <div onclick="toItemPage(this)">
                     <img src="uploads/<%= products[i].file_src %>">
-                    <h3>
-                        <%= products[i].name %>
-                    </h3>
-                    <p>
-                        <%= products[i].discription %>
-                    </p>
-                    <h4>NT$ <%= products[i].price %>
-                    </h4>
+                    <h3><%= products[i].name %></h3>
+                    <p><%= products[i].discription %></p>
+                    <h4>NT$ <%= products[i].price %></h4>
                     <button onclick="addToCart(this)" data-image="uploads/<%= products[i].file_src %>"
                         data-name="<%= products[i].name %>" data-price="<%= products[i].price %>">Add To
                         Cart</button>

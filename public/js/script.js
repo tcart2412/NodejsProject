@@ -139,22 +139,31 @@ function login() {
 
 function toCheckout() {
     const total_price = document.getElementById('total-price').textContent;
-    fetch('/CheckoutPage', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ cart: cart, totalPrice: total_price })
-    })
-        .then(response => response.json())
-        .then(result => {
-            // console.log('Success:', result);
-            console.log(result.receivedData);
-            window.location.href = '/CheckoutPage';
+    if (parseInt(total_price) == 0) {
+        Swal.fire({
+            icon: 'warning',
+            title: '抱歉',
+            text: '商品重複',
         })
-        .catch(error => {
-            console.error('Error:', error);
-        });
+    }
+    else {
+        fetch('/CheckoutPage', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ cart: cart, totalPrice: total_price })
+        })
+            .then(response => response.json())
+            .then(result => {
+                // console.log('Success:', result);
+                console.log(result.receivedData);
+                window.location.href = '/CheckoutPage';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    }
 }
 
 function cancelItem(div, name) {
@@ -184,6 +193,25 @@ function toggleMenu() {
     menu.classList.toggle('show');
 }
 
-
-
-
+function toItemPage(div) {
+    var name = div.querySelector('h3').textContent;
+    var dis = div.querySelector('p').textContent;
+    var price = div.querySelector('h4').textContent;
+    var img = div.querySelector('img').src.slice(22);
+    fetch('/ProductPage', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ name: name, dis: dis, price: price, img: img })
+    })
+        .then(response => response.json())
+        .then(result => {
+            // console.log('Success:', result);
+            console.log(result.receivedData);
+            window.location.href = '/ProductPage';
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+}

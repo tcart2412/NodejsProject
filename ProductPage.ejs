@@ -10,22 +10,31 @@
 
 <body>
     <header>
-        商品頁面
+        <button onclick="toggleMenu()" class="menu">&#9776;</button>
+        <h1><a href="/">好吃烘培工坊</a></h1>
+        <nav>
+            <ul id="menuItems">
+                <li><a href="/LoginPage">後台管理</a></li>
+            </ul>
+        </nav>
     </header>
     <main>
         <div class="product-content">
-            <div>
-                <img src="images/p1.png" alt="p1.png">
+            <div class="product-img">
+                <img src= <%=product_img %> alt="p1.png">
             </div>
             <div class="product-info">
                 <div class="product-name">
-                    <h1>巴黎風法國吐司</h1>
+                    <h1>
+                        <%= product_name %>
+                    </h1>
                 </div>
                 <div class="product-intro">
-                    從第一口濃到最後一口!
-                    絲滑濃稠的巧克力醬充滿榛果香味和杏仁碎粒的堅果香，加熱後醬料爆漿流餡，濃郁香甜，幸福感爆表的上癮滋味~
+                    <%= product_dis %>
                 </div>
-                <div class="product-price">NT500</div>
+                <div class="product-price">
+                    <%= product_price %>
+                </div>
 
                 <div class="product-quantity">
                     <button style="width: 50px;">+</button>

@@ -168,6 +168,7 @@ app.post('/edit-product', upload.single('image'), function (req, res) {
 
     if (!req.file) {
         console.log("No file upload");
+        res.redirect('/AdminPage');
     } else {
         console.log(req.file.filename);
         var imgsrc = req.file.filename;
@@ -188,6 +189,7 @@ app.get('/cancel-edit', function (req, res) {
 
 var cart = []
 var total_price;
+
 app.get('/CheckoutPage', function (req, res) {
     res.render(__dirname + '/CheckoutPage', { products: cart, totalPrice: total_price });
     // console.log(total_price);
@@ -198,6 +200,25 @@ app.post('/CheckoutPage', function (req, res) {
     cart = req.body.cart;
     total_price = req.body.totalPrice;
     res.json({ message: 'Data received successfully', receivedData: req.body });
+})
+
+
+var name;
+var dis;
+var price;
+var img;
+
+app.post('/ProductPage', function (req, res) {
+    name = req.body.name;
+    dis = req.body.dis;
+    price = req.body.price;
+    img = req.body.img;
+    res.json({ message: 'Data received successfully', receivedData: req.body });
+})
+
+app.get('/ProductPage', function (req, res) {
+    res.render(__dirname + '/ProductPage', { product_name: name, product_dis: dis, product_price: price, product_img: img });
+    // console.log(name, dis, price, img);
 })
 
 app.listen(7000);

@@ -54,7 +54,7 @@
                     <th class="delete-col">刪除</th>
                 </tr>
                 <% if (products.length> 0) { %>
-                    <% for(var i=0; i < products.length; i++) { %>
+                    <% for (var i=0; i < products.length; i++) { %>
                         <form action="/edit-product" enctype="multipart/form-data" method="post" >
                             <tr>
                                 <td>
@@ -70,7 +70,7 @@
                                 </td>
                                 <td>
                                     <% if (edit && (id==products[i].id)) { %>
-                                        <input type="text" value="<%= products[i].discription %>" name="discription">
+                                        <textarea name="discription" rows="6"><%= products[i].discription %></textarea>
                                         <% } else { %>
                                             <%= products[i].discription %>
                                         <% } %>
