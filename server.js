@@ -198,7 +198,7 @@ app.get('/CheckoutPage', function (req, res) {
 
 app.post('/CheckoutPage', function (req, res) {
     cart = req.body.cart;
-    console.log(cart);
+    // console.log(cart);
     total_price = req.body.totalPrice;
     res.json({ message: 'Data received successfully', receivedData: req.body });
 })

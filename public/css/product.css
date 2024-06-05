@@ -138,17 +138,5 @@ header a:hover {
     border: none;
     font-size: 15px;
     cursor: pointer;
-
-}
-
-.favor-area {
-    text-align: right;
-}
-
-.add-favor {
-    cursor: pointer;
-}
-
-.add-favor:hover {
-    color: red;
+    border-radius: 5px;
 }

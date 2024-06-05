@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>商品頁面</title>
     <link rel="stylesheet" href="css/product.css">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js"></script>
 </head>
 
 <body>
@@ -25,30 +27,19 @@
                 <img src= <%= product_img %> alt="p1.png">
             </div>
             <div class="product-info">
-                <div class="product-name">
-                    <h1>
-                        <%= product_name %>
-                    </h1>
-                </div>
-                <div class="product-intro">
-                    <%= product_dis %>
-                </div>
-                <div class="product-price">
-                    <%= product_price %>
-                </div>
+                <div class="product-name"><h1><%= product_name %></h1></div>
+                <div class="product-intro"><%= product_dis %></div>
+                <div class="product-price"><%= product_price %></div>
 
                 <div class="product-quantity">
-                    <button style="width: 50px;">+</button>
-                    <span>0</span>
-                    <button style="width: 50px">-</button>
+                    <button onclick="minusNum(this)" style="width: 50px;">-</button>
+                    <span class="quantity">0</span>
+                    <button onclick="addNum(this)" style="width: 50px">+</button>
                 </div>
                 <div class="star">&#11088 評價 : 4.9 顆星</div>
                 <div class="btn-area">
-                    <button class="order-btn">加入購物車</button>
-                    <button class="orderNow-btn">直接購買</button>
-                </div>
-                <div class="favor-area">
-                    <a class="add-favor">&#10084 加至我的最愛</a>
+                    <button onclick="addToCart(this)" class="order-btn">加入購物車</button>
+                    <button onclick="directCheckout(this)" class="orderNow-btn">直接購買</button>
                 </div>
             </div>
         </div>
@@ -57,5 +48,7 @@
 
     </footer>
 </body>
+
+<script src="js/product.js"></script>
 
 </html>
