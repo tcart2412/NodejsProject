@@ -192,12 +192,13 @@ var total_price;
 
 app.get('/CheckoutPage', function (req, res) {
     res.render(__dirname + '/CheckoutPage', { products: cart, totalPrice: total_price });
-    // console.log(total_price);
+    // console.log(cart);
 })
 
 
 app.post('/CheckoutPage', function (req, res) {
     cart = req.body.cart;
+    console.log(cart);
     total_price = req.body.totalPrice;
     res.json({ message: 'Data received successfully', receivedData: req.body });
 })
@@ -210,15 +211,71 @@ var img;
 
 app.post('/ProductPage', function (req, res) {
     name = req.body.name;
-    dis = req.body.dis;
     price = req.body.price;
     img = req.body.img;
     res.json({ message: 'Data received successfully', receivedData: req.body });
 })
 
 app.get('/ProductPage', function (req, res) {
-    res.render(__dirname + '/ProductPage', { product_name: name, product_dis: dis, product_price: price, product_img: img });
-    // console.log(name, dis, price, img);
+    var sql = "select discription from product where name=?";
+
+    con.query(sql, [name], function (error, result) {
+        if (error) throw error;
+        dis = result[0].discription;
+        res.render(__dirname + '/ProductPage', { product_name: name, product_dis: dis, product_price: price, product_img: img });
+    })
+})
+
+
+var item_name;
+var item_img;
+var item_price;
+
+app.get('/ShoppingCartPage', function (req, res) {
+
+    var sql = "select * from cart";
+
+    con.query(sql, function (error, result) {
+        if (error) throw error;
+        res.render(__dirname + '/ShoppingCartPage', { products: result });
+    })
+
+})
+
+app.post('/ShoppingCartPage', function (req, res) {
+    item_name = req.body.name;
+    item_img = req.body.img.slice(8);
+    item_price = req.body.price;
+    res.json({ message: 'Data received successfully', receivedData: req.body });
+
+    var sql = "INSERT INTO cart(name, image, price) VALUES(?, ?, ?)";
+    con.query(sql, [item_name, item_img, item_price], (err, result) => {
+        if (err) throw err;
+    })
+
+})
+
+
+app.post('/removeFromCart', function (req, res) {
+    var sql = 'delete from cart where name=?';
+    var name = req.body.name;
+    res.json({ message: 'Data Deleted !', receivedData: req.body });
+
+    con.query(sql, [name], function (error, result) {
+        if (error) throw err;
+        // console.log('delete')
+    });
+})
+
+app.post('/deleteAllCart', function (req, res) {
+    var sql = 'delete from cart';
+    // var name = req.body.name;
+    res.json({ message: 'Data Deleted !', receivedData: req.body });
+
+    con.query(sql, function (error, result) {
+        if (error) throw err;
+        // console.log('delete')
+    });
 })
 
 app.listen(7000);

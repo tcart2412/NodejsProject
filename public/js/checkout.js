@@ -1,21 +1,27 @@
 function sendOrder() {
-    const total_price = document.getElementById('total-price');
-    if (parseInt(total_price.textContent) > 0) {
-        Swal.fire({
-            icon: 'success',
-            title: '感謝購買',
-            text: '已送出訂單',
-        }).then(function () {
-            window.location.href = '/';
+    Swal.fire({
+        icon: 'success',
+        title: '感謝購買',
+        text: '已送出訂單',
+    }).then(function () {
+        var fakeData = "";
+        fetch('/deleteAllCart', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ data: fakeData })
         })
-    } else {
-        Swal.fire({
-            icon: 'warning',
-            title: '提交失敗',
-            text: '請選擇商品數量',
-        }).then(function () {
-            window.location.href = '/';
-        })
-    }
-
+            .then(response => response.json())
+            .then(result => {
+                // console.log('Success:', result);
+                localStorage.removeItem('shoppingCart');
+                // console.log(result.receivedData);
+                // window.location.href = '/CheckoutPage';
+                window.location.href = '/';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    })
 }
