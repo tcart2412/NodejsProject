@@ -13,7 +13,7 @@
 
 <body>
     <header>
-        <h1><a href="/">好吃烘培工坊</a></h1>
+        <h1><a href="/">你好健身房</a></h1>
         <nav>
             <ul id="menuItems">
                 <li><a href="/ShoppingCartPage">購物車</a></li>
@@ -34,12 +34,16 @@
                 <div>
                     <input type="password" placeholder="密碼" name="password">
                 </div>
+                <% if (invalid) { %>
+                    <p style="color: red;">請輸入輸入欄位不可為空</p>
+                <% } else { %>
+                    <% if (regis > 0) { %>
+                        <p style="color: red;">此帳號已被註冊</p>
+                    <% } %>
+                <% } %>
                 <div>
                     <button type="submit">註冊</button>
                 </div>
-                <% if (regis > 0) { %>
-                    <p style="color: red;">此帳號已被註冊</p>
-                <% } %>
                 <div class="register-btn">
                     <div onclick="backToLogin()">
                         回登入頁面

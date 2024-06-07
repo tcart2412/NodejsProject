@@ -53,11 +53,13 @@ app.post('/LoginPage', function (req, res) {
 
 
 var regisCheck;
+var invalidInput = false;
 
 app.get('/RegisterPage', function (req, res) {
     console.log(regisCheck);
-    res.render(__dirname + '/RegisterPage', { regis: regisCheck });
+    res.render(__dirname + '/RegisterPage', { regis: regisCheck, invalid: invalidInput });
     regisCheck = 0;
+    invalidInput = false;
 });
 
 app.post('/RegisterPage', function (req, res) {
@@ -66,23 +68,29 @@ app.post('/RegisterPage', function (req, res) {
     var acc = req.body.account;
     var pwd = req.body.password;
 
-    var sql = "select * from member where account=?";
-    con.query(sql, [acc], function (error, result) {
-        if (error) console.log(error);
-        regisCheck = result.length;
-        console.log(regisCheck);
-        if (regisCheck == 0) {
-            sql = "INSERT INTO member(name, account, password) VALUES(?, ?, ?)";
-            con.query(sql, [name, acc, pwd], function (error, result) {
-                if (error) throw error;
-                res.redirect('/LoginPage');
-                console.log(result);
-            })
-        }
-        else { // 帳號重複
-            res.redirect('/RegisterPage');
-        }
-    })
+    if (name == "" || acc == "" || pwd == "") {
+        invalidInput = true;
+        res.redirect('/RegisterPage');
+    } else {
+        var sql = "select * from member where account=?";
+        con.query(sql, [acc], function (error, result) {
+            if (error) console.log(error);
+            regisCheck = result.length;
+            console.log(regisCheck);
+            if (regisCheck == 0) {
+                sql = "INSERT INTO member(name, account, password) VALUES(?, ?, ?)";
+                con.query(sql, [name, acc, pwd], function (error, result) {
+                    if (error) throw error;
+                    res.redirect('/LoginPage');
+                    console.log(result);
+                })
+            } else { // 帳號重複
+                res.redirect('/RegisterPage');
+            }
+        })
+
+    }
+
 });
 
 app.get('/ProductPage.html', function (req, res) {

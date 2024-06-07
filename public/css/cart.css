@@ -37,6 +37,8 @@ header ul {
 header li {
     display: inline;
     margin-right: 4vw;
+    font-size: 20px;
+    font-weight: bolder;
 }
 
 
@@ -133,4 +135,10 @@ header a:hover {
     color: white;
     font-weight: bolder;
     cursor: pointer;
+}
+
+.total-price-box {
+    font-weight: bolder;
+
+    font-size: 18px;
 }

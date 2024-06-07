@@ -37,6 +37,8 @@ header ul {
 header li {
     display: inline;
     margin-right: 4vw;
+    font-size: 20px;
+    font-weight: bolder;
 }
 
 
@@ -47,7 +49,6 @@ header a {
 
 header a:hover {
     text-decoration: none;
-    color: #E0E9A3;
 }
 
 .news {
@@ -72,7 +73,7 @@ header a:hover {
 
 .news p {
     color: #d19494;
-    font-size: 18px;
+    font-size: 20px;
     margin: 25px 0;
 }
 
@@ -120,6 +121,7 @@ header a:hover {
 .info p {
     text-align: center;
     line-height: 2em;
+    font-size: 20px;
 }
 
 .product {
@@ -190,6 +192,7 @@ header a:hover {
 
 .newsletter p {
     margin-bottom: 10px;
+    font-size: 20px;
 }
 
 .newsletter input,
