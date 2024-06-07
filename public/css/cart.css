@@ -25,6 +25,7 @@ h1 {
     background-repeat: no-repeat;
     background-position: center;
     width: 210px;
+    text-align: center;
 }
 
 header ul {
