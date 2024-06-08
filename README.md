@@ -17,4 +17,4 @@ npm install nodemon
 nodemon server.js
 ```
 
-<a href="https://github.com/tcart2412/NodejsProject/blob/master/asset/intro.pptx" download>網站功能介紹 PPT 下載</a>
+[網站功能介紹 PPT 下載](asset/intro.pptx)
