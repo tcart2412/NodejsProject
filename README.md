@@ -17,4 +17,4 @@ npm install nodemon
 nodemon server.js
 ```
 
-[網站功能介紹 PPT 下載](asset/intro.pptx)
+[網站功能介紹 PPT 下載](https://docs.google.com/presentation/d/1tEURqgxK0lgLIt2mwfucFEhjJQf2HgrR/edit?usp=drive_link&ouid=114134249846857135307&rtpof=true&sd=true)
