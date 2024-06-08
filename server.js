@@ -93,11 +93,6 @@ app.post('/RegisterPage', function (req, res) {
 
 });
 
-app.get('/ProductPage.html', function (req, res) {
-    res.sendFile(__dirname + '/ProductPage.html');
-})
-
-
 
 //! Use of Multer
 var storage = multer.diskStorage({
